@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../lib/jquery/jquery.js"></script>
+</head>
+<body>
+<div class="scrollnav" id="scrollnav">
+    <a href="#" page-scroll="#scrolltoTop" id="scrolltoTop">滑动到顶端</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <a href="#" page-scroll="#scrolltoMid" id="scrolltoMid">滑动到中部</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <a href="#" page-scroll="#scrolltoEnd" id="scrolltoEnd">滑动到底端</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+
+<script>
+    $(document).ready(function () {
+        jQuery.scrollTo=function (scrolldom, scrolltime) {
+            $(scrolldom).click(function () {
+                //获取到要滑动的位置的那个对象
+                var scrollToDom=$(this).attr("page-scroll");
+                //$(this).addClass("thisscroll").siblings().removeClass("thisscroll");
+                //用animate操作滑动
+                $('html,body').animate({scrollTop:$(scrollToDom).offset().top},scrolltime);
+                return false;
+            });
+        };
+        对div里的每个a标签进行滑动函数
+        $.scrollTo("#scrollnav a",1000);
+
+    });
+</script>
+
+
+</body>
+</html>
