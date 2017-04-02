@@ -7,9 +7,9 @@
 </head>
 <body>
 <div class="scrollnav" id="scrollnav">
-    <a href="#" page-scroll="#scrolltoTop" id="scrolltoTop">滑动到顶端</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <a href="#" page-scroll="#scrolltoMid" id="scrolltoMid">滑动到中部</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <a href="#" page-scroll="#scrolltoEnd" id="scrolltoEnd">滑动到底端</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <a href="#" id="scrolltoTop">滑动到顶端</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <a href="#" id="scrolltoMid">滑动到中部</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <a href="#" id="scrolltoEnd">滑动到底端</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
 
 <script>
@@ -17,10 +17,10 @@
         jQuery.scrollTo=function (scrolldom, scrolltime) {
             $(scrolldom).click(function () {
                 //获取到要滑动的位置的那个对象
-                var scrollToDom=$(this).attr("page-scroll");
+                var scrollToDom=$(this).attr("id");
                 //$(this).addClass("thisscroll").siblings().removeClass("thisscroll");
                 //用animate操作滑动
-                $('html,body').animate({scrollTop:$(scrollToDom).offset().top},scrolltime);
+                $('html,body').animate({scrollTop:$("#"+scrollToDom).offset().top},scrolltime);
                 return false;
             });
         };
